@@ -1,0 +1,16 @@
+.liked::before{
+    content: '\f004';
+    font-family: 'Font Awesome 5 Free';
+    color: gray;
+    font-weight: 900;
+}
+.unliked::before {
+    content: '\f004';
+    font-family: 'Font Awesome 5 Free';
+    color: red;
+    font-weight: 900;
+}
+.liked,.unliked {
+    border: 0px;
+    background-color:white;
+}
