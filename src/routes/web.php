@@ -23,7 +23,7 @@ Route::post('/menu', [MenuController::class, 'index']);
 Route::middleware('auth')->group(function () {
     Route::post('/thanks', [ThanksController::class, 'index']);
     Route::get('/', [ShopController::class, 'index']);
-    Route::get('/detail/{id}', [ShopController::class, 'detail'])->name('a');
+    Route::get('/detail/{id}', [ShopController::class, 'detail']);
     Route::get('/research', [ShopController::class, 'search']);
     Route::post('/reservation', [ReservationController::class, 'reservation']);
     Route::get('/mypage', [MyPageController::class, 'index']);

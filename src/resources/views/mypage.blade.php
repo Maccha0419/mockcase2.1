@@ -2,6 +2,8 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
+<link href="{{ mix('css/like.css') }}" rel="stylesheet" type="text/css">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"><link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -17,11 +19,11 @@
                     <th class="attendance-table__header">Shop</th>
                 </tr>
                 <tr class="attendance-table__row">
-                    <td class="attendance-table__item">{{$reservation->shop_name}}</td>
+                    <td class="attendance-table__item">{{$reservation->shop->shop_name}}</td>
                 </tr>
 
                 <tr class="attendance-table__row">
-                    <th class="attendance-table__header">$Date</th>
+                    <th class="attendance-table__header">Date</th>
                 </tr>
                 <tr class="attendance-table__row">
                     <td class="attendance-table__item">{{$reservation->reservation_date}}</td>
@@ -42,11 +44,12 @@
                 </tr>
             </table>
         </div>
+        @endforeach
     </div>
     <div class="shop-card">
         <div class="card__inner">
             <div id="like" >
-            @foreach ($shops as $key => $shop)
+            @foreach ($like_shops as $key => $shop)
                 <div class="card__image">
                     <img src="{{ $shop->shop_image }}" alt="">
                     <input name="shop_image" type="hidden" value="{{ $shop->shop_image }}">
@@ -79,7 +82,6 @@
                     :default-Liked="{{ json_encode($shop->default_liked) }}"
                     ></like-component>
                 </div>
-
             @endforeach
             </div>
         </div>

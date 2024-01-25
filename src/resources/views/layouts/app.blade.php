@@ -18,10 +18,9 @@
     <header class="header">
         <div class="header__inner">
             <div class="header-utilities">
-                <form class="form" action="/menu" method="post">
-                    @csrf
-                    <button class="header-nav__button"></button>
-                </form>
+                <div id="like" >
+                    <menu-component><menu-component>
+                </div>
                 <a href="/" class="header__logo">Rese</a>
             </div>
         </div>

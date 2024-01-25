@@ -7,6 +7,7 @@ use App\Models\Shop;
 use App\Models\Like;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Arr;
 
 class MyPageController extends Controller
 {
@@ -14,18 +15,12 @@ class MyPageController extends Controller
     {
         $user = Auth::user();
         $reservations = Reservation::with('shop')->where('user_id',$user->id)->get();
-        dd($reservations);
 
-
-        $shop_areas = Shop::groupBy('shop_area')->get('shop_area');
-        $shop_genres = Shop::groupBy('shop_genre')->get('shop_genre');
         $shops = Shop::get();
-        $user = Auth::user();
         $user -> load('likes');
         $defaultLikeds = $user->likes;
 
         foreach($shops as $shop){
-            // dd($shop->first('shop_name'));
             foreach($defaultLikeds as $defaultLiked){
                 if ($shop->id == $defaultLiked->shop_id){
                     $defaultLiked = Arr::add($shop,'dafaultLiked',1);
@@ -38,6 +33,7 @@ class MyPageController extends Controller
                 }
             }
         }
-        return view('shop', compact('shops','shop_areas','shop_genres','user'));
+        $like_shops = $shops->where('defaultliked',1);
+        return view('mypage', compact('like_shops','reservations','user'));
     }
 }

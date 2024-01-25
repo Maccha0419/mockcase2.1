@@ -22,16 +22,23 @@ class ReservationRequest extends FormRequest
      *
      * @return array
      */
+    public function all($keys = null)
+    {
+        $results = parent::all($keys);
+        $results['reservation_at'] = $results['reservation_date'].''.$results['reservation_time'];
+        return $results;
+    }
     public function rules()
     {
         return [
             'reservation_date' => ['required','after:today'],
-            'reservation_time' => ['required',new ReservationRule(
+            'reservation_time' => 'required',
+            'reservation_number' => 'required',
+            'reservation_at' => new ReservationRule(
                 $this->id,
                 $this->reservation_date,
                 $this->reservation_time
-            )],
-            'reservation_number' => 'required',
+            )
         ];
     }
     public function messages()

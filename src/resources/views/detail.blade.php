@@ -38,6 +38,11 @@
         <div class="reservation__title">
             <h2 class="title">予約</h2>
         </div>
+        <div class="form__error">
+            @error('reservation_at')
+                {{ $message }}
+            @enderror
+        </div>
         <form class="reservation-form" action="/reservation" method="post">
             @csrf
             <input name="id" type="hidden" value="{{ old('id', $shop->id) }}">

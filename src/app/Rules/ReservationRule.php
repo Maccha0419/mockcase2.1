@@ -37,7 +37,7 @@ class ReservationRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        $shop = Reservation::where([
+        return Reservation::where([
             ['shop_id', $this->_id],
             ['reservation_date', $this->_reservation_date],
             ['reservation_time', $this->_reservation_time],
