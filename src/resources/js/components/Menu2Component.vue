@@ -14,16 +14,13 @@
                             <a class="header-nav__link" href="/">Home</a>
                         </li>
                         <li>
-                            <form class="form" action="/Registration" method="post">
+                            <form class="form" action="/logout" method="post">
                                 <input type="hidden" name="_token" :value="csrf">
-                                <button class="header-nav__button">Registration</button>
+                                <button class="header-nav__button">Logout</button>
                             </form>
                         </li>
                         <li>
-                            <form class="form" action="/login" method="post">
-                                <input type="hidden" name="_token" :value="csrf">
-                                <button class="header-nav__button">login</button>
-                            </form>
+                            <a class="header-nav__link" href="/mypage">Mypage</a>
                         </li>
                     </ul>
                 </div>

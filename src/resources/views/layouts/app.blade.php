@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ mix('js/like.js') }}" defer></script>
+    <script src="{{ mix('js/menu.js') }}" defer></script>
     <title>Rese</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -17,10 +18,15 @@
     <body>
     <header class="header">
         <div class="header__inner">
-            <div class="header-utilities">ボタン
-                <!-- <div id="menu" >
+            <div class="header-utilities">
+                <div id="menu" >
+                    @guest
                     <menu-component><menu-component>
-                </div> -->
+                    @endguest
+                    @auth
+                    <menu2-component><menu2-component>
+                    @endauth
+                </div>
                 <a href="/" class="header__logo">Rese</a>
             </div>
         </div>

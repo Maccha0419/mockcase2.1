@@ -1,1 +1,149 @@
 
+.hamburger_btn {
+    position: fixed;
+    /*常に最上部に表示したいので固定*/
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 72px;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.hamburger_btn .line {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 32px;
+    height: 2px;
+    background: #333333;
+    text-align: center;
+}
+
+.hamburger_btn .line_01 {
+    top: 16px;
+    transition: 0.4s ease;
+}
+
+.hamburger_btn .line_02 {
+    top: 26px;
+    transition: 0.4s ease;
+}
+
+.hamburger_btn .line_03 {
+    top: 36px;
+    transition: 0.4s ease;
+}
+
+
+.btn_line01 {
+    transform: translateY(10px) rotate(-45deg);
+    transition: 0.4s ease;
+}
+
+.btn_line02 {
+    transition: 0.4s ease;
+    opacity: 0;
+}
+
+.btn_line03 {
+    transform: translateY(-10px) rotate(45deg);
+    transition: 0.4s ease;
+}
+
+  /* ハンバーガーメニューのボタンのcss */
+  .hamburger-btn {
+      position: fixed;
+      top: 10.5px;
+      left: 100px;
+      width: 70px;
+      height: 72px;
+      cursor: pointer;
+      z-index: 50;
+  }
+
+  .line {
+      position: absolute;
+      top: 0;
+      left: 20px;
+      width: 45px;
+      height: 2px;
+      background: #333333;
+      text-align: center;
+  }
+
+  .line-top {
+      top: 16px;
+      transition: 0.4s ease;
+  }
+
+  .line-middle {
+      top: 26px;
+      transition: 0.4s ease;
+  }
+
+  .line-bottom {
+      top: 36px;
+      transition: 0.4s ease;
+  }
+
+  .rotate-top {
+      transform: translateY(10px) rotate(-45deg);
+      transition: 0.4s ease;
+  }
+
+  .rotate-middle {
+      transition: 0.4s ease;
+      opacity: 0;
+  }
+
+  .rotate-bottom {
+      transform: translateY(-10px) rotate(45deg);
+      transition: 0.4s ease;
+  }
+
+/* ハンバーガーメニューの中身のcss */
+.hamburger-menu-enter-active,
+.hamburger-menu-leave-active {
+    opacity: 0.4;
+}
+
+.hamburger-menu-enter,
+.hamburger-menu-leave-to {
+    opacity: 0;
+}
+
+.hamburger-menu-leave,
+.hamburger-menu-enter-to {
+    opacity: 1;
+}
+
+.hamburger-menu {
+    background-color: rgba(197, 197, 197, 0.671);
+    z-index: 30;
+    padding: 2rem 1rem;
+    position: fixed;
+    width: 300px;
+    height: 80rem;
+    top: 0;
+    left: 0;
+}
+
+ul {
+    padding: 0;
+    padding-top: 40px;
+}
+
+li {
+    padding: 35px 0;
+    list-style: none;
+    line-height: 1;
+}
+
+a {
+    color: rgb(66, 66, 66);
+    text-decoration: none;
+    font-size: 25px;
+    margin: 0 4vw;
+    padding-bottom: 8px;
+}
