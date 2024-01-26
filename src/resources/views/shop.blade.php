@@ -14,13 +14,13 @@
             <select class="search-form__item-select" name="shop_area">
                 <option value="">All area</option>
                 @foreach ($shop_areas as $shop_area)
-                <option value="{{ $shop_area->shop_area }}">{{ $shop_area->shop_area }}</option>
+                <option value="{{ $shop_area->shop_area }}" @if(old('shop_area') == $shop_area->shop_area) selected @endif>{{ $shop_area->shop_area }}</option>
                 @endforeach
             </select>
             <select class="search-form__item-select" name="shop_genre">
                 <option value="">All genre</option>
                 @foreach ($shop_genres as $shop_genre)
-                <option value="{{ $shop_genre->shop_genre}}">{{ $shop_genre->shop_genre }}</option>
+                <option value="{{ $shop_genre->shop_genre}}" @if(old('shop_genre') == $shop_genre->shop_genre) selected @endif>{{ $shop_genre->shop_genre }}</option>
                 @endforeach
             </select>
             <button class="search-form__button-submit" type="submit"></button>

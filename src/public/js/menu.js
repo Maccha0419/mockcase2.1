@@ -5130,7 +5130,7 @@ var render = function render() {
         _vm.active = !_vm.active;
       }
     }
-  }, [_c("span", {
+  }, [_c("p", [_vm._v("Rese")]), _vm._v(" "), _c("span", {
     staticClass: "line line-top",
     "class": {
       "rotate-top": _vm.active
@@ -5248,7 +5248,7 @@ var render = function render() {
   }, [_vm._v("Home")])]), _vm._v(" "), _c("li", [_c("form", {
     staticClass: "form",
     attrs: {
-      action: "/Registration",
+      action: "/register",
       method: "post"
     }
   }, [_c("input", {

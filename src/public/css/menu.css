@@ -1,106 +1,53 @@
-
-.hamburger_btn {
+/* ハンバーガーメニューのボタンのcss */
+.hamburger-btn {
     position: fixed;
-    /*常に最上部に表示したいので固定*/
-    top: 0;
-    right: 0;
+    top: 10.5px;
+    left: 100px;
     width: 70px;
     height: 72px;
     cursor: pointer;
     z-index: 50;
 }
 
-.hamburger_btn .line {
+.line {
     position: absolute;
     top: 0;
     left: 20px;
-    width: 32px;
+    width: 45px;
     height: 2px;
     background: #333333;
     text-align: center;
 }
 
-.hamburger_btn .line_01 {
+.line-top {
     top: 16px;
     transition: 0.4s ease;
 }
 
-.hamburger_btn .line_02 {
+.line-middle {
     top: 26px;
     transition: 0.4s ease;
 }
 
-.hamburger_btn .line_03 {
+.line-bottom {
     top: 36px;
     transition: 0.4s ease;
 }
 
-
-.btn_line01 {
+.rotate-top {
     transform: translateY(10px) rotate(-45deg);
     transition: 0.4s ease;
 }
 
-.btn_line02 {
+.rotate-middle {
     transition: 0.4s ease;
     opacity: 0;
 }
 
-.btn_line03 {
+.rotate-bottom {
     transform: translateY(-10px) rotate(45deg);
     transition: 0.4s ease;
 }
-
-  /* ハンバーガーメニューのボタンのcss */
-  .hamburger-btn {
-      position: fixed;
-      top: 10.5px;
-      left: 100px;
-      width: 70px;
-      height: 72px;
-      cursor: pointer;
-      z-index: 50;
-  }
-
-  .line {
-      position: absolute;
-      top: 0;
-      left: 20px;
-      width: 45px;
-      height: 2px;
-      background: #333333;
-      text-align: center;
-  }
-
-  .line-top {
-      top: 16px;
-      transition: 0.4s ease;
-  }
-
-  .line-middle {
-      top: 26px;
-      transition: 0.4s ease;
-  }
-
-  .line-bottom {
-      top: 36px;
-      transition: 0.4s ease;
-  }
-
-  .rotate-top {
-      transform: translateY(10px) rotate(-45deg);
-      transition: 0.4s ease;
-  }
-
-  .rotate-middle {
-      transition: 0.4s ease;
-      opacity: 0;
-  }
-
-  .rotate-bottom {
-      transform: translateY(-10px) rotate(45deg);
-      transition: 0.4s ease;
-  }
 
 /* ハンバーガーメニューの中身のcss */
 .hamburger-menu-enter-active,

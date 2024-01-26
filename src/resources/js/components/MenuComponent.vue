@@ -14,7 +14,7 @@
                             <a class="header-nav__link" href="/">Home</a>
                         </li>
                         <li>
-                            <form class="form" action="/Registration" method="post">
+                            <form class="form" action="/register" method="post">
                                 <input type="hidden" name="_token" :value="csrf">
                                 <button class="header-nav__button">Registration</button>
                             </form>

@@ -27,7 +27,6 @@
                     <menu2-component><menu2-component>
                     @endauth
                 </div>
-                <a href="/" class="header__logo">Rese</a>
             </div>
         </div>
     </header>

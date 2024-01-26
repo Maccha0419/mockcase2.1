@@ -39,8 +39,6 @@ class Shop extends Model
         }
     }
 
-
-
     public function scopeShopareaSearch($query, $shop_area){
         if (!empty($shop_area)) {
             $query->where('shop_area', $shop_area);
