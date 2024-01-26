@@ -5123,14 +5123,16 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("div", {
+  return _c("div", {
+    staticClass: "Rese-content"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "hamburger-btn",
     on: {
       click: function click($event) {
         _vm.active = !_vm.active;
       }
     }
-  }, [_c("p", [_vm._v("Rese")]), _vm._v(" "), _c("span", {
+  }, [_c("span", {
     staticClass: "line line-top",
     "class": {
       "rotate-top": _vm.active
@@ -5145,7 +5147,7 @@ var render = function render() {
     "class": {
       "rotate-bottom": _vm.active
     }
-  }), _vm._v(" "), _c("transition", {
+  })]), _vm._v(" "), _c("transition", {
     attrs: {
       name: "hamburger-menu"
     }
@@ -5183,9 +5185,17 @@ var render = function render() {
     attrs: {
       href: "/mypage"
     }
-  }, [_vm._v("Mypage")])])])])])], 1)]);
+  }, [_vm._v("Mypage")])])])])])], 1);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "Rese"
+  }, [_c("p", {
+    staticClass: "Rese-text"
+  }, [_vm._v("Rese")])]);
+}];
 render._withStripped = true;
 
 
@@ -5206,7 +5216,9 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("div", {
+  return _c("div", {
+    staticClass: "Rese-content"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "hamburger-btn",
     on: {
       click: function click($event) {
@@ -5249,7 +5261,7 @@ var render = function render() {
     staticClass: "form",
     attrs: {
       action: "/register",
-      method: "post"
+      method: "get"
     }
   }, [_c("input", {
     attrs: {
@@ -5265,7 +5277,7 @@ var render = function render() {
     staticClass: "form",
     attrs: {
       action: "/login",
-      method: "post"
+      method: "get"
     }
   }, [_c("input", {
     attrs: {
@@ -5277,9 +5289,17 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("button", {
     staticClass: "header-nav__button"
-  }, [_vm._v("login")])])])])])])], 1)]);
+  }, [_vm._v("Login")])])])])])])], 1)]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "Rese"
+  }, [_c("p", {
+    staticClass: "Rese-text"
+  }, [_vm._v("Rese")])]);
+}];
 render._withStripped = true;
 
 

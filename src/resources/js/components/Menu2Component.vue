@@ -1,11 +1,14 @@
 <template>
-    <div>
+    <div class="Rese-content">
+        <div class="Rese">
+            <p class="Rese-text">Rese</p>
+        </div>
         <!--ハンバーガーメニューのボタン-->
         <div class="hamburger-btn" @click='active = !active'>
-            <p>Rese</p>
             <span class="line line-top" :class="{ 'rotate-top': active }"></span>
             <span class="line line-middle" :class="{ 'rotate-middle': active }"></span>
             <span class="line line-bottom" :class="{ 'rotate-bottom': active }"></span>
+        </div>
 
 
             <!--ハンバーガーメニューの中身-->
@@ -27,7 +30,6 @@
                     </ul>
                 </div>
             </transition>
-        </div>
     </div>
 </template>
 

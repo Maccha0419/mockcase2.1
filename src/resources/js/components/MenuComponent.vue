@@ -1,5 +1,8 @@
 <template>
-    <div>
+    <div class="Rese-content">
+        <div class="Rese">
+            <p class="Rese-text">Rese</p>
+        </div>
         <!--ハンバーガーメニューのボタン-->
         <div class="hamburger-btn" @click='active = !active'>
             <span class="line line-top" :class="{ 'rotate-top': active }"></span>
@@ -14,15 +17,15 @@
                             <a class="header-nav__link" href="/">Home</a>
                         </li>
                         <li>
-                            <form class="form" action="/register" method="post">
+                            <form class="form" action="/register" method="get">
                                 <input type="hidden" name="_token" :value="csrf">
                                 <button class="header-nav__button">Registration</button>
                             </form>
                         </li>
                         <li>
-                            <form class="form" action="/login" method="post">
+                            <form class="form" action="/login" method="get">
                                 <input type="hidden" name="_token" :value="csrf">
-                                <button class="header-nav__button">login</button>
+                                <button class="header-nav__button">Login</button>
                             </form>
                         </li>
                     </ul>

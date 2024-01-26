@@ -1,8 +1,8 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/like.js": "/js/like.js",
-    "/js/menu.js": "/js/menu.js",
-    "/css/app.css": "/css/app.css",
-    "/css/menu.css": "/css/menu.css",
-    "/css/like.css": "/css/like.css"
+    "/js/app.js": "/js/app.js?id=a34804810828dc8984575a3c230196dd",
+    "/js/like.js": "/js/like.js?id=d1cb5d32e62eee1c93a2c9e70f68c428",
+    "/js/menu.js": "/js/menu.js?id=0e5d12f23fe902cdf5192d31fbc3e80c",
+    "/css/app.css": "/css/app.css?id=00a0b44e3eece10588f9be655762faa9",
+    "/css/menu.css": "/css/menu.css?id=b683fb24cac097db7904fa61c6369e59",
+    "/css/like.css": "/css/like.css?id=bfb679abb35fddccecf68d107e9b17b7"
 }

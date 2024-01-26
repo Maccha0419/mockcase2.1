@@ -10,12 +10,13 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
+                    <div class="thanks">{{ __('ご予約ありがとうございます。') }}</div>
                     <div class="card-header">{{ __('メールアドレスを認証しました。') }}</div>
 
                     <div class="card-body">
                         @if (session('resent'))
                             <div class="alert alert-success" role="alert">
-                                {{ __('メールアドレスに新しい認証リンクが送信されました。') }}
+                                {{ __('メールアドレスに新しい認証リンクが送信されました') }}
                             </div>
                         @endif
 
@@ -26,6 +27,10 @@
                             <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('メールを再送信') }}</button>
                         </form>
                     </div>
+                    <form class="back" method="post" action="/logout">
+                        @csrf
+                        <button type="submit" class="back-button">{{ __('戻る') }}</button>
+                    </form>
                 </div>
             </div>
         </div>

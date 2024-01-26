@@ -18,10 +18,8 @@ use App\Http\Controllers\MyPageController;
 |
 */
 
-Route::post('/menu', [MenuController::class, 'index']);
-
-Route::middleware('auth')->group(function () {
-    Route::post('/thanks', [ThanksController::class, 'index']);
+Route::middleware('verified')->group(function () {
+    // Route::post('/thanks', [ThanksController::class, 'index']);
     Route::get('/', [ShopController::class, 'index']);
     Route::get('/detail/{id}', [ShopController::class, 'detail']);
     Route::get('/research', [ShopController::class, 'search']);
