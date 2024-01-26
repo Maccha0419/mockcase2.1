@@ -1,48 +1,23 @@
 <template>
-    <div>
-        <button v-if="!liked" type="button" class="liked" @click="like(shopId)"></button>
-        <button v-else type="button" class="unliked" @click="unlike(shopId)"></button>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Example Component</div>
+
+                    <div class="card-body">
+                        I'm an example component.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-    export default {
-        props: ['shopId', 'userId', 'defaultLiked'],
-        data() {
-            return {
-                liked: false,
-            };
-        },
-        created() {
-            this.liked = this.defaultLiked
-        },
-        methods: {
-            like(shopId) {
-                let url = `/api/shops/${shopId}/like`
-
-                axios.post(url, {
-                    user_id: this.userId
-                })
-                .then(response => {
-                    this.liked = true
-                })
-                .catch(error => {
-                    alert(error)
-                });
-            },
-            unlike(shopId) {
-                let url = `/api/shops/${shopId}/unlike`
-
-                axios.post(url, {
-                    user_id: this.userId
-                })
-                .then(response => {
-                    this.liked = false
-                })
-                .catch(error => {
-                    alert(error)
-                });
-            }
-        }
+export default {
+    mounted() {
+        console.log('Component mounted.')
     }
+}
 </script>

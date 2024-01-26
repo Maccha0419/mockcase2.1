@@ -3,7 +3,7 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <link href="{{ mix('css/like.css') }}" rel="stylesheet" type="text/css">
-<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"><link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 @endsection
 
 @section('content')

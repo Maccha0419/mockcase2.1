@@ -5076,38 +5076,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['shopId', 'userId', 'defaultLiked'],
-  data: function data() {
-    return {
-      liked: false
-    };
-  },
-  created: function created() {
-    this.liked = this.defaultLiked;
-  },
-  methods: {
-    like: function like(shopId) {
-      var _this = this;
-      var url = "/api/shops/".concat(shopId, "/like");
-      axios.post(url, {
-        user_id: this.userId
-      }).then(function (response) {
-        _this.liked = true;
-      })["catch"](function (error) {
-        alert(error);
-      });
-    },
-    unlike: function unlike(shopId) {
-      var _this2 = this;
-      var url = "/api/shops/".concat(shopId, "/unlike");
-      axios.post(url, {
-        user_id: this.userId
-      }).then(function (response) {
-        _this2.liked = false;
-      })["catch"](function (error) {
-        alert(error);
-      });
-    }
+  mounted: function mounted() {
+    console.log('Component mounted.');
   }
 });
 
@@ -5128,29 +5098,25 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [!_vm.liked ? _c("button", {
-    staticClass: "liked",
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.like(_vm.shopId);
-      }
-    }
-  }) : _c("button", {
-    staticClass: "unliked",
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.unlike(_vm.shopId);
-      }
-    }
-  })]);
+  return _vm._m(0);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row justify-content-center"
+  }, [_c("div", {
+    staticClass: "col-md-8"
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "card-header"
+  }, [_vm._v("Example Component")]), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_vm._v("\n                    I'm an example component.\n                ")])])])])]);
+}];
 render._withStripped = true;
 
 
@@ -39263,18 +39229,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -39326,17 +39280,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-"use strict";
 /*!******************************!*\
   !*** ./resources/js/menu.js ***!
   \******************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -39345,12 +39293,6 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
-window.axios = (__webpack_require__(/*! axios */ "./node_modules/axios/index.js")["default"]);
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-var token = document.head.querySelector('meta[name="csrf-token"]');
-if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-}
 
 /**
  * The following block of code may be used to automatically register your
@@ -39371,8 +39313,8 @@ Vue.component('menu-component', (__webpack_require__(/*! ./components/MenuCompon
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var like = new Vue({
-  el: '#like'
+var menu = new Vue({
+  el: '#menu'
 });
 })();
 

@@ -10,17 +10,17 @@
     <title>Rese</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ mix('css/menu.css') }}" rel="stylesheet" type="text/css">
     @yield('css')
 </head>
 
     <body>
     <header class="header">
         <div class="header__inner">
-            <div class="header-utilities">
-                <div id="like" >
+            <div class="header-utilities">ボタン
+                <!-- <div id="menu" >
                     <menu-component><menu-component>
-                </div>
+                </div> -->
                 <a href="/" class="header__logo">Rese</a>
             </div>
         </div>

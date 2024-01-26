@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -9,12 +7,6 @@ import axios from 'axios';
 require('./bootstrap');
 
 window.Vue = require('vue').default;
-window.axios = require('axios').default;
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
-const token = document.head.querySelector('meta[name="csrf-token"]')
-if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content
-}
 
 /**
  * The following block of code may be used to automatically register your
@@ -35,6 +27,6 @@ Vue.component('menu-component', require('./components/MenuComponent.vue').defaul
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const like = new Vue({
-    el: '#like',
+const menu = new Vue({
+    el: '#menu',
 });
