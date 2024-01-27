@@ -5240,7 +5240,7 @@ var render = function render() {
     "class": {
       "rotate-bottom": _vm.active
     }
-  }), _vm._v(" "), _c("transition", {
+  })]), _vm._v(" "), _c("transition", {
     attrs: {
       name: "hamburger-menu"
     }
@@ -5289,7 +5289,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("button", {
     staticClass: "header-nav__button"
-  }, [_vm._v("Login")])])])])])])], 1)]);
+  }, [_vm._v("Login")])])])])])])], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,

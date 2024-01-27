@@ -19,7 +19,7 @@ class MyPageController extends Controller
         $shops = Shop::get();
         $user -> load('likes');
         $defaultLikeds = $user->likes;
-
+        dd($defaultLikeds);
         foreach($shops as $shop){
             foreach($defaultLikeds as $defaultLiked){
                 if ($shop->id == $defaultLiked->shop_id){
@@ -34,6 +34,7 @@ class MyPageController extends Controller
             }
         }
         $like_shops = $shops->where('defaultliked',1);
+        dd($like_shops);
         return view('mypage', compact('like_shops','reservations','user'));
     }
 }

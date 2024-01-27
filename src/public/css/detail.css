@@ -1,0 +1,51 @@
+.content {
+    display: flex;
+    justify-content: space-around;
+}
+.shop-card {
+    width: 40%;
+    margin: 120px 0px 0px 40px;
+}
+.card__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.card__button-button {
+    width: 30px;
+    height: 30px;
+    transform: translate(0, -10%);
+}
+.card__button-button::before {
+    content: "";
+    margin: auto;
+    position: absolute;
+    top: 30%;
+    left: 10px;
+    width: 13px;
+    height: 13px;
+    border-top: 3px solid #000;
+    border-right: 3px solid #000;
+    transform: rotate(-135deg);
+}
+.card__name {
+    margin-left: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+img {
+    width: 100%;
+}
+.card__text-upper {
+    display: flex;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.shop_genre {
+    margin-left: 5px;
+}
+.reservation-card {
+    width: 40%;
+    background: #505bf0;
+    margin-top: 20px;
+}

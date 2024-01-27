@@ -58,10 +58,10 @@ class ShopsSeeder extends Seeder
                 [
                     'id' => '5',
                     'shop_name' => '志摩屋',
-                    'shop_area' => '東京都',
-                    'shop_genre' => '寿司',
+                    'shop_area' => '福岡県',
+                    'shop_genre' => 'ラーメン',
                     'shop_overview'=>'料理長厳選の食材から作る寿司を用いたコースをぜひお楽しみください。食材・味・価格、お客様の満足度を徹底的に追及したお店です。特別な日のお食事、ビジネス接待まで気軽に使用することができます。',
-                    'shop_image'=> asset ('storage/img/sushi.jpg' ),
+                    'shop_image'=> asset ('storage/img/ramen.jpg' ),
                 ]
             );
             DB::table('shops')->insert(

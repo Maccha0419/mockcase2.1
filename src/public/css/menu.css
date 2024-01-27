@@ -1,15 +1,16 @@
 .Rese {
+    z-index: 30;
     font-size: 30px;
-    font-weight: 1000;
+    font-weight:bold;
     position: fixed;
     color: #000ff0;
 }
 .Rese-text {
-    transform: translate(280%, 50%);
+    transform: translate(220%, 50%);
 }
 
 .hamburger-btn {
-    z-index: 50;
+    z-index: 100;
     position: fixed;
     top: 20px;
     left: 100px;
