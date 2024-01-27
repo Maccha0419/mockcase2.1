@@ -37,9 +37,14 @@ class ReservationRequest extends FormRequest
             'reservation_at' => new ReservationRule(
                 $this->id,
                 $this->reservation_date,
-                $this->reservation_time
+                $this->reservation_time,
             )
         ];
+        dd(new ReservationRule(
+                $this->id,
+                $this->reservation_date,
+                $this->reservation_time,
+            ));
     }
     public function messages()
     {

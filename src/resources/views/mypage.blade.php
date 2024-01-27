@@ -12,48 +12,64 @@
         <div class="reservation__title">
             <p class="reservation__title-text">予約状況</p>
         </div>
+        @foreach ($reservations as $key => $reservation)
         <div class="reservation__card">
-            @foreach ($reservations as $reservation)
-            <div class="reservation__card__title">
-                <p class="reservation__card__title-content">予約{{$reservation->id}}</p>
+            <div class="reservation__card-inner">
+                <div class="reservation__img"></div>
+                <div class="reservation__card__title">
+                    <p class="reservation__card__title-content">予約{{$key+1}}</p>
+                </div>
+                <form class="reservation__button" action="/mypage" method="post">
+                    @csrf
+                    <button class="reservation__delete"></button>
+                    <input name="id" type="hidden" value="{{ $reservation->id }}">
+                </form>
             </div>
-            <div class="reservation-table">
-                <table class="reservation-table__inner">
-                    <tr class="reservation-table__row">
-                        <th class="reservation-table__header">Shop</th>
-                    </tr>
-                    <tr class="reservation-table__row">
-                        <td class="reservation-table__item">{{$reservation->shop->shop_name}}</td>
-                    </tr>
-
-                    <tr class="reservation-table__row">
-                        <th class="reservation-table__header">Date</th>
-                    </tr>
-                    <tr class="reservation-table__row">
-                        <td class="reservation-table__item">{{$reservation->reservation_date}}</td>
-                    </tr>
-
-                    <tr class="reservation-table__row">
-                        <th class="reservation-table__header">Time</th>
-                    </tr>
-                    <tr class="reservation-table__row">
-                        <td class="reservation-table__item">{{$reservation->reservation_time}}</td>
-                    </tr>
-
-                    <tr class="reservation-table__row">
-                        <th class="reservation-table__header">Number</th>
-                    </tr>
-                    <tr class="reservation-table__row">
-                        <td class="reservation-table__item">{{$reservation->reservation_number}}</td>
-                    </tr>
-                </table>
+            <div class="confirm">
+                <div class="confirm__inner">
+                    <div class="confirm-group">
+                        <div class="confirm__content">
+                            <p>Shop</p>
+                        </div>
+                        <div class="confirm__content">
+                            <p>{{ $reservation->shop->shop_name }}</p>
+                        </div>
+                    </div>
+                    <div class="confirm-group">
+                        <div class="confirm__content">
+                            <p>Date</p>
+                        </div>
+                        <div class="confirm__content">
+                            <p>{{ $reservation->reservation_date }}</p>
+                        </div>
+                    </div>
+                    <div class="confirm-group">
+                        <div class="confirm__content">
+                            <p>Time</p>
+                        </div>
+                        <div class="confirm__content">
+                            <p>{{ $reservation->reservation_time }}</p>
+                        </div>
+                    </div>
+                    <div class="confirm-group">
+                        <div class="confirm__content-number">
+                            <p>Number</p>
+                        </div>
+                        <div class="confirm__content">
+                            <p>{{ $reservation->reservation_number }}人</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            @endforeach
         </div>
+        @endforeach
     </div>
     <div class="shop__content">
+        <div class="myname">
+            <h2 class="reservation__title-text">{{$user->name}}さん</h2>
+        </div>
         <div class="shop__title">
-            <p class="shop__title-text">お気に入り店舗</p>
+            <h3 class="shop__title-text">お気に入り店舗</h3>
         </div>
         <div id="like" >
             <div class="shop-card">
@@ -95,7 +111,6 @@
                 @endforeach
             </div>
         </div>
-    </div>
     </div>
 </div>
 @endsection

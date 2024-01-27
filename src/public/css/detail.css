@@ -46,6 +46,15 @@ img {
 }
 .reservation-card {
     width: 40%;
-    background: #505bf0;
+    background: #4652ff;
+    margin-top: 20px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px gray;
+}
+.error-log {
+    color: red;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: white;
     margin-top: 20px;
 }

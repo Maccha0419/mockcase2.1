@@ -6,11 +6,11 @@
 
 @section('content')
 <div class="done__content">
+    <div class="text">
+        <p class="text-content">ご予約ありがとうございます。</p>
+    </div>
     <form class="form" action="/" method="get">
         @csrf
-        <div class="text">
-            <p class="text-content">ご予約ありがとうございます</p>
-        </div>
         <div class="form__button">
             <button class="form__button-submit" type="submit">戻る</button>
         </div>

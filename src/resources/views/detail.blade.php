@@ -2,6 +2,8 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
+<link rel="stylesheet" href="{{ asset('css/confirm.css') }}">
+<script src="{{ mix('js/confirm.js') }}" defer></script>
 @endsection
 
 @section('content')
@@ -36,53 +38,13 @@
             </div>
         </div>
     </div>
-    <div class="reservation-card">
-        <div class="reservation__title">
-            <h2 class="title">予約</h2>
-        </div>
-        <div class="form__error">
-            @error('reservation_at')
-                {{ $message }}
-            @enderror
-        </div>
-        <form class="reservation-form" action="/reservation" method="post">
-            @csrf
-            <input name="id" type="hidden" value="{{ old('id', $shop->id) }}">
-
-            <div class="reservation-form__date">
-                <input class="reservation-form__item" type="date" id="reservation_date" name="reservation_date" value="{{ old('reservation_date') }}" />
-            </div>
-            <div class="form__error">
-                @error('reservation_date')
-                    {{ $message }}
-                @enderror
-            </div>
-            <div class="reservation-form__time">
-                <input class="reservation-form__item" type="time" id="reservation_time" name="reservation_time" value="{{ old('reservation_time') }}" step="1800"/>
-            </div>
-            <div class="form__error">
-                @error('reservation_time')
-                    {{ $message }}
-                @enderror
-            </div>
-            <div class="reservation-form__number">
-                <select class="reservation-form__item-input" name="reservation_number">
-                    <option value="" @if(null === (int)old('reservation_number')) selected @endif hidden>人数</option>
-                    <option value="1" @if(1 === (int)old('reservation_number')) selected @endif>1人</option>
-                    <option value="2" @if(2 === (int)old('reservation_number')) selected @endif>2人</option>
-                    <option value="3" @if(3 === (int)old('reservation_number')) selected @endif>3人</option>
-                    <option value="4" @if(4 === (int)old('reservation_number')) selected @endif>4人</option>
-                    <option value="5" @if(5 === (int)old('reservation_number')) selected @endif>5人</option>
-                    <option value="6" @if(6 === (int)old('reservation_number')) selected @endif>6人</option>
-                </select>
-            </div>
-            <div class="form__error">
-                @error('reservation_number')
-                    {{ $message }}
-                @enderror
-            </div>
-            <button class="reservation-form__button-submit">予約する</button>
-        </form>
+    <div class="reservation-card" id="confirm">
+        <confirm-component
+        :shop-id="{{ json_encode($shop->id) }}"
+        :shop-name="{{ json_encode($shop->shop_name) }}"
+        :old="{{ json_encode(Session::getOldInput()) }}"
+        :errors= "{{ $errors }}"
+        ></confirm-component>
     </div>
 </div>
 @endsection

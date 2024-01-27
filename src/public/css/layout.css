@@ -9,3 +9,6 @@ body {
     max-width: 100%;
     background: #e8e8e8;
 }
+button,input,select {
+    cursor: pointer;
+}

@@ -25,4 +25,5 @@ Route::middleware('verified')->group(function () {
     Route::get('/research', [ShopController::class, 'search']);
     Route::post('/reservation', [ReservationController::class, 'reservation']);
     Route::get('/mypage', [MyPageController::class, 'index']);
+    Route::post('/mypage', [MyPageController::class, 'delete']);
 });
