@@ -1,32 +1,34 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+<link rel="stylesheet" href="{{ asset('css/shop.css') }}">
 <link href="{{ mix('css/like.css') }}" rel="stylesheet" type="text/css">
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 @endsection
 
 @section('content')
-<div class="login__content">
-    <form class="search-form" action="/research" method="get">
-        @csrf
-        <div class="search-form__item">
-            <select class="search-form__item-select" name="shop_area">
-                <option value="">All area</option>
-                @foreach ($shop_areas as $shop_area)
-                <option value="{{ $shop_area->shop_area }}" @if(old('shop_area') == $shop_area->shop_area) selected @endif>{{ $shop_area->shop_area }}</option>
-                @endforeach
-            </select>
-            <select class="search-form__item-select" name="shop_genre">
-                <option value="">All genre</option>
-                @foreach ($shop_genres as $shop_genre)
-                <option value="{{ $shop_genre->shop_genre}}" @if(old('shop_genre') == $shop_genre->shop_genre) selected @endif>{{ $shop_genre->shop_genre }}</option>
-                @endforeach
-            </select>
-            <button class="search-form__button-submit" type="submit"></button>
-            <input class="search-form__item-input" type="text" name="keyword" placeholder="Search..." value="{{ old('keyword') }}">
-        </div>
-    </form>
+<div class="search__content">
+    <div class="search__header">
+        <form class="search-form" action="/research" method="get">
+            @csrf
+            <div class="search-form__item">
+                <select class="search-form__item-select" name="shop_area">
+                    <option value="">All area</option>
+                    @foreach ($shop_areas as $shop_area)
+                    <option value="{{ $shop_area->shop_area }}" @if(old('shop_area') == $shop_area->shop_area) selected @endif>{{ $shop_area->shop_area }}</option>
+                    @endforeach
+                </select>
+                <select class="search-form__item-select" name="shop_genre">
+                    <option value="">All genre</option>
+                    @foreach ($shop_genres as $shop_genre)
+                    <option value="{{ $shop_genre->shop_genre}}" @if(old('shop_genre') == $shop_genre->shop_genre) selected @endif>{{ $shop_genre->shop_genre }}</option>
+                    @endforeach
+                </select>
+                <button class="search-form__button-submit" type="submit"></button>
+                <input class="search-form__item-input" type="text" name="keyword" placeholder="Search..." value="{{ old('keyword') }}">
+            </div>
+        </form>
+    </div>
     検索機能
 
     <div class="shop-card">

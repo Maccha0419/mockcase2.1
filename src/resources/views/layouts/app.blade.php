@@ -10,12 +10,12 @@
     <script src="{{ mix('js/menu.js') }}" defer></script>
     <title>Rese</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link href="{{ mix('css/menu.css') }}" rel="stylesheet" type="text/css">
     @yield('css')
 </head>
 
-    <body>
+<body>
     <header class="header">
         <div class="header__inner">
             <div class="header-utilities">

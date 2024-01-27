@@ -3,13 +3,11 @@
         <div class="Rese">
             <p class="Rese-text">Rese</p>
         </div>
-        <!--ハンバーガーメニューのボタン-->
         <div class="hamburger-btn" @click='active = !active'>
             <span class="line line-top" :class="{ 'rotate-top': active }"></span>
             <span class="line line-middle" :class="{ 'rotate-middle': active }"></span>
             <span class="line line-bottom" :class="{ 'rotate-bottom': active }"></span>
-
-            <!--ハンバーガーメニューの中身-->
+        </div>
             <transition name="hamburger-menu">
                 <div class="hamburger-menu" v-show="active">
                     <ul>
@@ -31,7 +29,6 @@
                     </ul>
                 </div>
             </transition>
-        </div>
     </div>
 </template>
 
