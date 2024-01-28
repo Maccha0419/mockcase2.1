@@ -15,10 +15,6 @@ use App\Http\Controllers\LikeController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
-//いいねを付ける
 Route::post('/shops/{shop}/like',[LikeController::class, 'like']);
 Route::post('/shops/{shop}/unlike',[LikeController::class, 'unlike']);

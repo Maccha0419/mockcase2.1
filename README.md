@@ -11,7 +11,6 @@ Reseはある企業のグループ会社の飲食店予約サービスです。
 
 開発用環境におけるサーバーにSSH接続する公開鍵のファイルは以下になります。
 - mockcase2key.pub
-## 他のレポジトリ
 
 ## 機能一覧
 - 会員登録機能
@@ -37,27 +36,30 @@ Reseはある企業のグループ会社の飲食店予約サービスです。
 - 環境の切り分け
 
 ## 使用技術（実行環境）
-- PHP 8.2.9
-- Laravel 8.83.8
-- MySQL 8.1.0
-- Nginx 1.22.1
-- AWS
-  - EC2
-  - RDS
-  - S3
+- フレームワーク
+  - Laravel 8.83.8
+  - Vue.js 2.7.16
+- 言語
+  - php
+  - html
+  - css
+  - javascript
 
 ## テーブル設計
 Usersテーブル
-![table-users](storage/table-users.png)
+![table-users](src/storage/users.png)
 
-Stampsテーブル
-![table-stamps](storage/table-stamps.png)
+Shopsテーブル
+![table-shops](src/storage/shops.png)
 
-Restsテーブル
-![table-rests](storage/table-rests.png)
+Reservationsテーブル
+![table-reservations](src/storage/reservations.png)
+
+likesテーブル
+![table-likes](src/storage/likes.png)
 
 ## ER図
-![ER](storage/er.drawio.png)
+![ER](/src/storage/ER.png)
 
 ## 環境構築
 #### プロジェクトのセットアップ手順
@@ -99,47 +101,85 @@ DB_PASSWORD=laravel_pass
 ```
 ##### viewファイルの作成
 各ページのviewファイルを作成します。
-resources/viewsに、以下4つのBladeファイルを作成します。
-| ファイル名| 表示内容 |
-| ---- | ---- |
-| index.blade.php | 打刻ページ |
-| attendance.blade.php | 日付別勤怠ページ |
-| user.blade.php | ユーザー一覧ページ |
-| user_information.blade.php | ユーザー勤怠表ページ |
+resources/viewsに、以下のBladeファイルを作成します。
+- change.blade.php　&emsp;...予約変更ページ
+- detail.blade.php  &emsp;...店舗詳細ページ
+- done.blade.php  &emsp;...予約完了ページ
+- mypage.blade.php  &emsp;...マイページ
+- shop.blade.php  &emsp;...店舗一覧ページ
 
-また、resources/views/authに以下3つのBladeファイルを作成します。
-| ファイル名| 表示内容 |
-| ---- | ---- |
-| login.blade.php | ログインページ |
-| register.blade.php | 会員登録ページ |
-| verify-email.blade.php | メール送信確認ページ |
+resources/views/authには以下のBladeファイルを作成します。
+- login.blade.php  &emsp;...ログインページ
+- mypage.blade.php  &emsp;...会員登録ページ
+- verify-email.blade.php  &emsp;...会員登録完了&メール認証ページ
 
-さらに、resources/views/layoutsに以下のBladeファイルを作成します。
-| ファイル名| 表示内容 |
-| ---- | ---- |
-| app.blade.php | ヘッダーとフッダー |
+resources/views/layoutsには以下のBladeファイルを作成します。
+- app.blade.php  &emsp;...ヘッダー
+
+また、お気に入り機能、予約機能及びメニュー表示を非同期で実装するため、以下のjsファイルとComponentを作成します。
+- like.js
+- menu.js
+- confirm.js
+- LikeComponent.vue
+- MenuComponent.Vue
+- Menu2Component.Vue
+- Confirm.Vue
 
 ##### cssファイルの作成
-cssファイルを作成します。
-public/cssに以下9つのファイルを配置します。
-- index.css
-- attendance.css
-- user.css
-- user_information.css
+public/cssに以下のcssファイルを配置します。
+- change.css
+- confirm.css
+- detail.css
+- done.css
+- layout.css
+- like.css
 - login.css
+- menu.css
+- mypage.css
 - register.css
 - verify-email.css
-- app.blade.css
+- shop.css
 - sanitize.css
 
 ##### RouteとControllerの作成
 Controllerファイルを作成し、以下のルート及びアクションを紐付けします。
-![controller](storage/controller.png)
+![controller](src/storage/ルート.png)
+
 ##### Modelの作成
 各モデルを作成します。
+- User.php
+- Shop.php
+- Reservation.php
+- Likes.php
 
-![model](storage/model.png)
-##### Fortifyの導入と会員登録機能、ログイン機能の実装
+##### バリデーションの作成
+各ファイルを作成します。なお、ログインや登録の際のバリデーションはFortifyに備わっている機能を使用します。
+![バリデーション](src/storage/バリデーション.png)
+
+#####　バリデーションの日本語化
+バリデーションを日本語表示にするため、以下のコマンドにより、/resources/lag/ja/validation.phpを作成します。
+```bash
+$ php -r "copy('<https://readouble.com/laravel/8.x/ja/install-ja-lang-files.php>', 'install-ja-lang.php');"
+$ php -f install-ja-lang.php
+$ php -r "unlink('install-ja-lang.php');"
+```
+また、承認メールは以下のコマンドにより/resources/lag/ja.jsonを作成します。
+```bash
+php artisan vendor:publish --tag=laravel-notifications
+```
+
+####　ツールの導入
+##### Vue.jsの導入
+下記コマンドでpackage.jsonに記述されているパッケージをインストールします。
+```bash
+$ npm install
+```
+プロジェクトをビルドします。
+```bash
+$ npm run watch
+```
+
+##### Fortifyの導入
 Laravelをインストールしたプロジェクト内でfortifyをインストールし、関連ファイルを作成します。
 その後、マイグレートを実行します。
 ```bash
@@ -147,70 +187,9 @@ $ composer require laravel/fortify
 $ php artisan migrate
 $ php artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"
 ```
-app/config/app.phpファイルでFortifyServiceProviderを有効にします。
-```bash
-App\Providers\FortifyServiceProvider::class,
-```
-app/Providers/FortifyServiceProvider.phpファイルにて、会員登録、ログイン画面の設定を行います。
 
-```
-public function boot()
-{
-    Fortify::registerView(function () {
-        return view('auth.register');
-    });
-    Fortify::loginView(function () {
-        return view('auth.login');
-    });
-```
-web.phpにて、ミドルウェアでログイン認証を設定します。
-```
-Route::middleware('Auth')->group(function () {
-```
-##### バリデーションの変更
-以下のファイルでバリデーションを設定します。
-![validation](storage/validation.png)
-バリデーションが英語の場合、以下のコマンド実行し、resources/lag/ja/validation.phpファイルを編集します。
-```bash
-$ php -r "copy('<https://readouble.com/laravel/8.x/ja/install-ja-lang-files.php>', 'install-ja-lang.php');"
-$ php -f install-ja-lang.php
-$ php -r "unlink('install-ja-lang.php');"
-```
-##### ページネーション機能の実装
-以下のコマンドを実行します。
-```bash
-$ php artisan vendor:publish --tag=laravel-pagination
-```
-tailwind.blade.phpを編集し、リンク先に設定します。
-##### メール認証機能の実装
-fortifyのメール認証機能を使用します。
-config/fortifyにある以下の機能をコメントアウトします。
-```
-Features::emailVerification(),
-```
-app/Providers/FortifyServiceProvider.phpファイルにて、メール認証の設定を行います。
-```
-Fortify::verifyEmailView(fn () => view('auth.verify-email'));
-```
-web.phpにて、ミドルウェアでメール認証を設定します。
-```
-Route::middleware('verified')->group(function () {
-```
-今回は本番環境用のメールサーバーを無料で使用することが困難であると判断し、開発用のメールサーバーMaiHogをローカル環境で使用します。
-docker-compose.ymlを編集します。
-```
-mailhog:
-  image: 'mailhog/mailhog:latest'
-  ports:
-      - 1025:1025
-      - 8025:8025
-```
-イメージをビルドし、コンテナを起動します。
-```bash
-docker-compose up -d --build
-code .
-```
-.envファイルを修正します。
+##### Mailhogによるメール送信機能の確認
+以下の記述を.envファイルに追加しイメージをビルドして使用します。なお、メールサーバーは有料であったため今回は使用していません。
 ```
 MAIL_MAILER=smtp
 MAIL_HOST=mailhog
@@ -221,6 +200,7 @@ MAIL_ENCRYPTION=null
 MAIL_FROM_ADDRESS=<example@gmail.com>
 MAIL_FROM_NAME="${APP_NAME}"
 ```
+
 ##### EC2の環境構築
 AWSにログイン後、EC2インスタンスを作成します。  
 Amazon Linux 2にログイン後、Nginx、PHP、Composerをイ
@@ -228,12 +208,9 @@ Amazon Linux 2にログイン後、Nginx、PHP、Composerをイ
 PHP-FPM、NginXの設定を行います。  
 上記で作成したLaravelプロジェクトをGitHubからクローンします。  
 sockの設定、app/storageの権限の変更、PHPライブラリのインストール、.envファイルの設定を行います。
-
 以下のURLから閲覧できます。
 <http://13.231.44.24/>
 
-メール認証機能は時間がなかったためしていません。
-また、同様の理由で本説明も簡潔に書いています。
 ##### RDSの環境構築
 AWSにログイン後、RDSでデータベースを作成します。  
 Amazon Linux 2にログイン後、MySQLをインストールします。  
@@ -242,7 +219,5 @@ E上記で使用したC2インスタンスのセキュリティグループを�
 マイグレーションを実行します。
 
 なお、DBの可視化をしたかったため、phpMyAdminをインストールし、.envファイルを設定しました。
-また、時間がなかったため本説明を簡潔に書いています。
 
 ##### S3の環境構築
-時間がなかったため出来ませんでした。
