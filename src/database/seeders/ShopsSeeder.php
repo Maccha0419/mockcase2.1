@@ -91,7 +91,7 @@ class ShopsSeeder extends Seeder
                     'shop_area' => '東京都',
                     'shop_genre' => 'ラーメン',
                     'shop_overview'=>'一杯、一杯心を込めて職人が作っております。味付けは少し濃いめです。 食べやすく最後の一滴まで美味しく飲めると好評です。',
-                    'shop_image'=> asset ('storage/img/ramen.jpg' ),
+                    'shop_image'=> asset ('storage/img/ramen.jpg'),
                 ]
             );
             DB::table('shops')->insert(
