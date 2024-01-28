@@ -26888,6 +26888,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/sass/evaluation.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/evaluation.scss ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -39417,7 +39430,8 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"css/app": 0,
 /******/ 			"css/confirm": 0,
 /******/ 			"css/menu": 0,
-/******/ 			"css/like": 0
+/******/ 			"css/like": 0,
+/******/ 			"css/evaluation": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -39467,11 +39481,12 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/confirm","css/menu","css/like"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/confirm","css/menu","css/like"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/confirm","css/menu","css/like"], () => (__webpack_require__("./resources/sass/like.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/confirm","css/menu","css/like"], () => (__webpack_require__("./resources/sass/menu.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/confirm","css/menu","css/like"], () => (__webpack_require__("./resources/sass/confirm.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/confirm","css/menu","css/like","css/evaluation"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/confirm","css/menu","css/like","css/evaluation"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/confirm","css/menu","css/like","css/evaluation"], () => (__webpack_require__("./resources/sass/like.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/confirm","css/menu","css/like","css/evaluation"], () => (__webpack_require__("./resources/sass/menu.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/confirm","css/menu","css/like","css/evaluation"], () => (__webpack_require__("./resources/sass/confirm.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/confirm","css/menu","css/like","css/evaluation"], () => (__webpack_require__("./resources/sass/evaluation.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

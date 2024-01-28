@@ -28,6 +28,9 @@ class Shop extends Model
     public function likes(){
         return $this->hasMany(Like::class);
     }
+    public function evaluations(){
+        return $this->hasMany(Like::class);
+    }
 
     protected $appends = ['defaultLiked' ];
     public function getDefaultLikedAttribute()

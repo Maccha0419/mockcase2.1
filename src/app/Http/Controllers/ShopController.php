@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Like;
 use App\Models\User;
+use App\Models\Reservation;
+use App\Models\Evaluation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
+use Carbon\Carbon;
 
 class ShopController extends Controller
 {
@@ -15,7 +18,7 @@ class ShopController extends Controller
     {
         $shop_areas = Shop::groupBy('shop_area')->get('shop_area');
         $shop_genres = Shop::groupBy('shop_genre')->get('shop_genre');
-        $shops = Shop::get();
+        $shops = Shop::with('evaluations')->get();
         $user = Auth::user();
         $user -> load('likes');
         $defaultLikeds = $user->likes;
