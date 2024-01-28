@@ -6,6 +6,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MyPageController;
+use App\Http\Controllers\ChangeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +20,12 @@ use App\Http\Controllers\MyPageController;
 */
 
 Route::middleware('verified')->group(function () {
-    // Route::post('/thanks', [ThanksController::class, 'index']);
     Route::get('/', [ShopController::class, 'index']);
     Route::get('/detail/{id}', [ShopController::class, 'detail']);
     Route::get('/research', [ShopController::class, 'search']);
     Route::post('/reservation', [ReservationController::class, 'reservation']);
     Route::get('/mypage', [MyPageController::class, 'index']);
-    Route::post('/mypage', [MyPageController::class, 'delete']);
+    Route::post('/delete', [MyPageController::class, 'delete']);
+    Route::post('/change', [ChangeController::class, 'index']);
+    Route::post('/update', [ChangeController::class, 'update']);
 });

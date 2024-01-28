@@ -19,7 +19,17 @@
                 <div class="reservation__card__title">
                     <p class="reservation__card__title-content">予約{{$key+1}}</p>
                 </div>
-                <form class="reservation__button" action="/mypage" method="post">
+                <form class="reservation__change" action="/change" method="post">
+                    @csrf
+                    <button class="reservation__change-button">変更</button>
+                    <input name="user_id" type="hidden" value="{{ $user->id }}">
+                    <input name="id" type="hidden" value="{{ $reservation->id }}">
+                    <input name="shop_name" type="hidden" value="{{ $reservation->shop->shop_name }}">
+                    <input name="reservation_date" type="hidden" value="{{ $reservation->reservation_date }}">
+                    <input name="reservation_time" type="hidden" value="{{ $reservation->reservation_time }}">
+                    <input name="reservation_number" type="hidden" value="{{ $reservation->reservation_number }}">
+                </form>
+                <form class="reservation__button" action="/delete" method="post">
                     @csrf
                     <button class="reservation__delete"></button>
                     <input name="id" type="hidden" value="{{ $reservation->id }}">

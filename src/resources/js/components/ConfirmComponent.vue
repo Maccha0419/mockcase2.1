@@ -7,7 +7,8 @@
             <div>
                 <input type="hidden" name="_token" :value="csrf">
                 <div class="reservation-form__form">
-                    <input class="reservation-form__id" name="id" type="hidden" placeholder="today" v-model="id">
+                    <input class="reservation-form__id" name="id" type="hidden" v-model="id">
+                    <input class="reservation-form__id" name="user_id" type="hidden" v-model="user_id">
                 </div>
                 <div class="reservation-form__form">
                     <input class="reservation-form__date" name="reservation_date" type="date"  v-model="reservation_date">
@@ -107,7 +108,7 @@
 
 <script>
 export default {
-    props: ['old','errors','shopName','shopId'],
+    props: ['old','errors','shopName','shopId','userId'],
     data() {
         return {
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
@@ -115,6 +116,7 @@ export default {
             reservation_time: this.old.reservation_time,
             reservation_number: this.old.reservation_number,
             id: this.shopId,
+            user_id: this.userId,
             error: {
                 reservation_date: this.errors.reservation_date,
                 reservation_time: this.errors.reservation_time,

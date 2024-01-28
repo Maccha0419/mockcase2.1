@@ -39,7 +39,8 @@ class ShopController extends Controller
     public function detail($id)
     {
         $shop = Shop::where('id', $id)->first();
-        return view('detail', compact('shop'));
+        $user = Auth::user();
+        return view('detail', compact('shop','user'));
     }
 
     public function search(Request $request)

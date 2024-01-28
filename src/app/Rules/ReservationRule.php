@@ -18,12 +18,14 @@ class ReservationRule implements Rule
      */
 
     private $_id,
+            $_user_id,
             $_reservation_date,
             $_reservation_time;
 
-    public function __construct($id, $reservation_date, $reservation_time)
+    public function __construct($id, $user_id, $reservation_date, $reservation_time)
     {
         $this->_id = $id;
+        $this->_user_id = $user_id;
         $this->_reservation_date = $reservation_date;
         $this->_reservation_time = $reservation_time;
     }
@@ -37,12 +39,25 @@ class ReservationRule implements Rule
      */
     public function passes($attribute, $value)
     {
-
-        return Reservation::where([
+        $a = Reservation::where([
             ['shop_id', $this->_id],
             ['reservation_date', $this->_reservation_date],
             ['reservation_time', $this->_reservation_time],
-        ])->doesntExist();
+        ]);
+        if ($a->doesntExist())
+        {
+            return true;
+        }else
+        {
+            if ($a->get()->value('user_id') == $this->_user_id)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
     /**

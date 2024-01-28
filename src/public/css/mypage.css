@@ -29,7 +29,16 @@
 }
 .reservation__card__title {
     color: white;
-    margin-left: 90px;
+    margin-left: 60px;
+}
+.reservation__change-button {
+    margin-left: 130px;
+    background: #517ef1;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 .reservation__img::before {
     content: '\f017';
@@ -40,7 +49,7 @@
     margin-left: 35px;
 }
 .reservation__delete {
-    margin: 0px 0px 0px 250px;
+    margin: 0px 0px 0px 90px;
     display: block;
     position: relative;
     width: 25px;

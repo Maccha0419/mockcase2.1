@@ -40,6 +40,7 @@
     </div>
     <div class="reservation-card" id="confirm">
         <confirm-component
+        :user-id="{{ json_encode($user->id) }}"
         :shop-id="{{ json_encode($shop->id) }}"
         :shop-name="{{ json_encode($shop->shop_name) }}"
         :old="{{ json_encode(Session::getOldInput()) }}"
